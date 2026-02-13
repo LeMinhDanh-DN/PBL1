@@ -19,16 +19,16 @@ int get_nam(string date){
     return year;
 }
 
-int trungMaHang(string maGoc, string maBatDau){
+int checkTrungMaHang(string maGoc, string maBatDau){
     for(int i = 0; i< maBatDau.size() ; i++){
         if(maGoc[i] != maBatDau[i]) return 0;
     }
     return 1;
 }
 
-vector<phieu_nk *> khoPhieu;
+vector<phieuNhapKho *> khoPhieu;
 
-void tinhThanhTien(phieu_nk *ptr){
+void tinhThanhTien(phieuNhapKho *ptr){
         double thanhTienGoc = ptr->soLuong * ptr->donGia;
 
         if(ptr->soLuong > 200) ptr->thanhTien = 0.85 * thanhTienGoc;
@@ -36,8 +36,8 @@ void tinhThanhTien(phieu_nk *ptr){
         else ptr->thanhTien = 0.9*thanhTienGoc;
 }
 
-void inputProducts(string maHang, string tenHang, string donViTinh, string ngayNhap, int soLuong, double donGia, double thanhTien){
-    phieu_nk *newOrder = new phieu_nk;
+void nhapKho(string maHang, string tenHang, string donViTinh, string ngayNhap, int soLuong, double donGia, double thanhTien){
+    phieuNhapKho *newOrder = new phieuNhapKho;
     newOrder->maHang = maHang;
     newOrder->tenHang = tenHang;
     newOrder->donViTinh = donViTinh;
@@ -71,9 +71,9 @@ void thongKeTheoThang(int thang){
 
 void xoaMatHang(string donVi, string maHang){
     for(int i = 0; i < khoPhieu.size(); i++){
-        phieu_nk *phieu = khoPhieu[i];
+        phieuNhapKho *phieu = khoPhieu[i];
         if(phieu
-            && phieu->donViTinh == donVi && trungMaHang(phieu->maHang, maHang)){
+            && phieu->donViTinh == donVi && checkTrungMaHang(phieu->maHang, maHang)){
                 delete phieu;
             }
     }

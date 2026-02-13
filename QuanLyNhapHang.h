@@ -5,7 +5,7 @@
 #include <vector>
 using namespace std;
 
-struct phieu_nk{
+struct phieuNhapKho{
     string maHang;
     string tenHang;
     string donViTinh;
@@ -20,9 +20,9 @@ int get_thang(string date);
 int get_ngay(string date);
 int get_nam(string date);
 
-int Check_trungMaHang(string maGoc, string maBatDau);
-void tinhThanhTien(phieu_nk *ptr);
-void inputProducts(string maHang, string tenHang, string donViTinh, string ngayNhap, int soLuong, double donGia, double thanhTien);
+int checkTrungMaHang(string maGoc, string maBatDau);
+void tinhThanhTien(phieuNhapKho *ptr);
+void nhapKho(string maHang, string tenHang, string donViTinh, string ngayNhap, int soLuong, double donGia, double thanhTien);
 void thongKeTheoThang(int thang);
 void xoaMatHang(string donVi, string maHang);
 void menu();
